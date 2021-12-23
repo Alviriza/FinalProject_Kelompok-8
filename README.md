@@ -13,12 +13,12 @@ Aplikasi buatan kami ini bertujuan untuk menghimpun penilaian dari pengguna terh
 ### Data Yang Digunakan
 * Data Film
         <p>Pada data film ini, data-data yang kami gunakan adalah sebagai berikut:<p>
-  1 Judul Film
-  2 Nama Sutradara
-  3 Genre Film
-  4 Tanggal Perilisan
-  5 Rating Film
-  6 Durasi Film
+ 1 Judul Film
+ 2 Nama Sutradara
+ 3 Genre Film
+ 4 Tanggal Perilisan
+ 5 Rating Film
+ 6 Durasi Film
 * Data Penilaian
         <p>Pada data film ini, data-data yang kami gunakan adalah sebagai berikut:<p>
   + Judul Film Yang Dinilai
