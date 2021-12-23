@@ -12,7 +12,7 @@ Untuk nama program dari final project kami adalah Aplikasi *Re-vie*
 Aplikasi buatan kami ini bertujuan untuk menghimpun penilaian dari pengguna terhadap daftar film yang kami sediakan. Selain itu pengguna juga dapat menambahkan, mengubah, dan menghapus daftar film dan penilaian yang ada.
 ### Data Yang Digunakan
 * Data Film
-      Pada data film ini, data-data yang kami gunakan adalah sebagai berikut:
+    <p>Pada data film ini, data-data yang kami gunakan adalah sebagai berikut:<p>
   + Judul Film
   + Nama Sutradara
   + Genre Film
@@ -20,7 +20,7 @@ Aplikasi buatan kami ini bertujuan untuk menghimpun penilaian dari pengguna terh
   + Rating Film
   + Durasi Film
 * Data Penilaian
-      <p>Pada data film ini, data-data yang kami gunakan adalah sebagai berikut:<p>
+    <p>Pada data film ini, data-data yang kami gunakan adalah sebagai berikut:<p>
   + Judul Film Yang Dinilai
   + Nama Penilai
   + Pekerjaan Penilai
