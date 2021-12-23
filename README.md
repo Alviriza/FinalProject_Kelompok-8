@@ -1,4 +1,4 @@
-# Aplikasi Re-Vie
+# Aplikasi *Re-Vie*
 Nama Anggota Kelompok
 1.  Ariel Sambali                           20081010029
 2.	Yoshi Inne Herawati                     20081010127
