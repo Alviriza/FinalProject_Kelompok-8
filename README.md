@@ -9,4 +9,4 @@ Berikut ini merupakan penjelasan dari Final Project Kelompok kami
     4.   Dicky Satria Mahendra                   20081010132
     5.   Muhammad Alviriza Ramadhan              20081010143
 ### Deskripsi Project Akhir
-      Aplikasi buatan kami ini bertujuan untuk menghimpun penilaian dari pengguna terhadap daftar film yang kami sediakan. Selain itu pengguna juga dapat menambahkan, mengubah, dan menghapus daftar film dan penilaian yang ada.
+Aplikasi buatan kami ini bertujuan untuk menghimpun penilaian dari pengguna terhadap daftar film yang kami sediakan. Selain itu pengguna juga dapat menambahkan, mengubah, dan menghapus daftar film dan penilaian yang ada.
