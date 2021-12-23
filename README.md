@@ -20,7 +20,7 @@ Aplikasi buatan kami ini bertujuan untuk menghimpun penilaian dari pengguna terh
   + Rating Film
   + Durasi Film
 * Data Penilaian
-      Pada data film ini, data-data yang kami gunakan adalah sebagai berikut:
+      <p>Pada data film ini, data-data yang kami gunakan adalah sebagai berikut:<p>
   + Judul Film Yang Dinilai
   + Nama Penilai
   + Pekerjaan Penilai
