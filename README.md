@@ -29,6 +29,7 @@ Aplikasi buatan kami ini bertujuan untuk menghimpun penilaian dari pengguna terh
 ### Metode yang Diterapkan
 * CRUD (_Create, Read, Update, Delete_)
 * Buble Sort
+* Selection Sort
 * Binary Search
 * File Operations
 ### List Menu yang Ditawarkan
