@@ -44,7 +44,7 @@ Aplikasi buatan kami ini bertujuan untuk menghimpun penilaian dari pengguna terh
 * Tampilkan Penilaian
 * Hapus Penilaian
 ### Screenshot Aplikasi
-## Berikut ini merupakan file rincian dari program atau aplikasi yang kami buat
+#### Berikut ini merupakan file rincian dari program atau aplikasi yang kami buat
 [SCREENSHOT APLIKASI.docx](https://github.com/Alviriza/FinalProject_Kelompok-8/files/7781119/SCREENSHOT.APLIKASI.docx)
 
          
