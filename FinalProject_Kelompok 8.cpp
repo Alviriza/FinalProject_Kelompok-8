@@ -75,24 +75,11 @@ void garis(int x) {
 	printf("\n");
 }
 
-void header(char nama[50], char npm[50], char kelas[10], 
-			char matkul[50], char dosen[50]) 
-{
-	gotoxy(60,1);
-	printf("Re - Vie");
-	gotoxy(44,2);
-	printf("Nilai Film Kesukaanmu Disini!\n");
+void header() {
 	garis(120);
-	gotoxy(40,4);
-	printf("Nama\t\t: %s\n", nama);
-	gotoxy(40,5);
-	printf("NPM\t\t: %s\n", npm);
-	gotoxy(40,6);
-	printf("Kelas\t\t: %s\n", kelas);
-	gotoxy(40,7);
-	printf("Matkul\t\t: %s\n", matkul);
-	gotoxy(40,8);
-	printf("Dosen Pengampu\t: %s\n", dosen);
+	printf("\t\t\t\t\t\t\t    Re - Vie\n");
+	printf("\t\t\t\t\t\tNilai Film Kesukaanmu Disini!\n");
+	garis(120);	
 }
 
 void tambahdata() {
@@ -100,7 +87,7 @@ void tambahdata() {
 	FILE *fp;
 	int n, i, j;
 	system("cls");
-	printf("\t\t\t\t\t\tMENU TAMBAH DATA\n\n");
+	printf("\n\t\t\t\t\t\tMENU TAMBAH DATA\n\n");
 	printf (" Masukkan Jumlah Data Film Yang Akan diinput : ");
 	scanf ("%d", &n);
 	
@@ -116,9 +103,9 @@ void tambahdata() {
 		gets(d[i].sutradara);
 		printf(" Genre\t\t\t: ");
 		gets(d[i].genre);
-		printf(" Tanggal Penerbitan\t: ");
+		printf(" Tanggal Perilisan\t: ");
 		gets(d[i].tanggal);
-		printf(" Rating Film\t\t: ");
+		printf(" Rating Umur\t\t: ");
 		gets(d[i].rating);
 		printf(" Durasi Film\t\t: ");
 		gets(d[i].durasi);
@@ -180,7 +167,7 @@ void tampildata() {
 	FILE *fp;
 	int j = 0;
 	system("cls");
-	printf("\t\t\t\t\t\tMENU TAMPILKAN DATA\n\n");
+	printf("\n\t\t\t\t\t\tMENU TAMPILKAN DATA\n\n");
 	fp = fopen ("datafilm.txt", "r");
 	while (fread(&d1, sizeof(datafilm),1,fp)) {
 		printf(" Data Film Ke - %i\n",j+1);
@@ -188,8 +175,8 @@ void tampildata() {
 		printf(" Judul Film\t\t: %s\n",d1.judul);
 		printf(" Sutradara\t\t: %s\n",d1.sutradara);
 		printf(" Genre\t\t\t: %s\n",d1.genre);
-		printf(" Tanggal Penerbitan\t: %s\n",d1.tanggal);
-		printf(" Rating Film\t\t: %s\n",d1.rating);
+		printf(" Tanggal Perilisan\t: %s\n",d1.tanggal);
+		printf(" Rating Umur\t\t: %s\n",d1.rating);
 		printf(" Durasi Film\t\t: %s\n",d1.durasi);
 		printf("\n");
 		j++;
@@ -203,7 +190,7 @@ void tampilnilai() {
 	FILE *fp;
 	int j = 0;
 	system("cls");
-	printf("\t\t\t\t\t\tMENU TAMPILKAN DATA\n\n");
+	printf("\t\t\t\t\t\tMENU TAMPILKAN PENILAIAN\n\n");
 	fp = fopen ("datapenilaian.txt", "r");
 	while (fread(&n1, sizeof(penilaian),1,fp)) {
 		printf(" Data Penilaian Ke - %i\n",j+1);
@@ -241,9 +228,9 @@ void ubahdata() {
 			gets(d1.sutradara);
 			printf(" Genre\t\t\t: ");
 			gets(d1.genre);
-			printf(" Tanggal Penerbitan\t: ");
+			printf(" Tanggal Perilisan\t: ");
 			gets(d1.tanggal);
-			printf(" Rating Film\t\t: ");
+			printf(" Rating Umur\t\t: ");
 			gets(d1.rating);
 			printf(" Durasi Film\t\t: ");
 			gets(d1.durasi);
@@ -359,8 +346,8 @@ void tampilcari() {
 		printf(" Judul Film\t\t: %s\n",d1.judul);
 		printf(" Sutradara\t\t: %s\n",d1.sutradara);
 		printf(" Genre\t\t\t: %s\n",d1.genre);
-		printf(" Tanggal Penerbitan\t: %s\n",d1.tanggal);
-		printf(" Rating Film\t\t: %s\n",d1.rating);
+		printf(" Tanggal Perilisan\t: %s\n",d1.tanggal);
+		printf(" Rating Umur\t\t: %s\n",d1.rating);
 		printf(" Durasi Film\t\t: %s\n",d1.durasi);
 		printf("\n");
 		j++;
@@ -456,10 +443,10 @@ void caritanggal() {
 	int ditemukan = 0;
 	char tanggal[50];
 	system("cls");
-	printf("\t\t\t\t\t\tMENU CARI FILM BERDASARKAN TANGGAL PENERBITAN\n\n");
+	printf("\t\t\t\t\t\tMENU CARI FILM BERDASARKAN TANGGAL PERILISAN\n\n");
 	fp = fopen ("datafilm.txt", "r");
 	fp1 = fopen ("sementara.txt", "w");
-	printf(" Masukkan Tanggal Penerbitan Film Yang Ingin Dicari : ");
+	printf(" Masukkan Tanggal Perilisan Film Yang Ingin Dicari : ");
 	gets(tanggal);
 	while (fread(&d1, sizeof(datafilm), 1, fp)) {
 		if((strcmp (tanggal, d1.tanggal) == 0)) {
@@ -565,7 +552,7 @@ void judul_desc() {
 void sutra_asc() {
 	datafilm *d, d1;
 	FILE *fp;
-	int i,j;
+	int i,j,min;
 	fp = fopen ("datafilm.txt", "r");
 	fseek (fp,0,SEEK_END);
 	int n = ftell(fp)/sizeof(datafilm);
@@ -579,12 +566,14 @@ void sutra_asc() {
 	
 	fp = fopen ("datafilm.txt", "w");
 	for (i = 0; i < n; i++) {
-		for (j = i+1; j < n; j++) {
+		min = i;
+		for (j = i; j < n; j++) {
 			if((strcmp (d[i].sutradara, d[j].sutradara) > 0)) {
-				d1   = d[i];
-				d[i] = d[j];
-				d[j] = d1;			
+				min = j;		
 			}
+			d1   = d[i];
+			d[i] = d[j];
+			d[j] = d1;	
 		}
 		fwrite(&d[i],sizeof (datafilm),1,fp);
 	}
@@ -594,7 +583,7 @@ void sutra_asc() {
 void sutra_desc() {
 	datafilm *d, d1;
 	FILE *fp;
-	int i,j;
+	int i,j,min;
 	fp = fopen ("datafilm.txt", "r");
 	fseek (fp,0,SEEK_END);
 	int n = ftell(fp)/sizeof(datafilm);
@@ -608,70 +597,14 @@ void sutra_desc() {
 	
 	fp = fopen ("datafilm.txt", "w");
 	for (i = 0; i < n; i++) {
-		for (j = i+1; j < n; j++) {
+		min = i;
+		for (j = i; j < n; j++) {
 			if((strcmp (d[i].sutradara, d[j].sutradara) < 0)) {
-				d1   = d[i];
-				d[i] = d[j];
-				d[j] = d1;			
+				min = j;			
 			}
-		}
-		fwrite(&d[i],sizeof (datafilm),1,fp);
-	}
-	fclose (fp);
-}
-
-void tanggal_asc() {
-	datafilm *d, d1;
-	FILE *fp;
-	int i,j;
-	fp = fopen ("datafilm.txt", "r");
-	fseek (fp,0,SEEK_END);
-	int n = ftell(fp)/sizeof(datafilm);
-	
-	d = (datafilm*) calloc (n, sizeof(datafilm));
-	
-	rewind(fp);
-	for (i = 0; i < n; i++) {
-		fread (&d[i], sizeof(datafilm), 1, fp);
-	}
-	
-	fp = fopen ("datafilm.txt", "w");
-	for (i = 0; i < n; i++) {
-		for (j = i+1; j < n; j++) {
-			if((strcmp (d[i].tanggal, d[j].tanggal) > 0)) {
-				d1   = d[i];
-				d[i] = d[j];
-				d[j] = d1;			
-			}
-		}
-		fwrite(&d[i],sizeof (datafilm),1,fp);
-	}
-	fclose (fp);
-}
-
-void tanggal_desc() {
-	datafilm *d, d1;
-	FILE *fp;
-	int i,j;
-	fp = fopen ("datafilm.txt", "r");
-	fseek (fp,0,SEEK_END);
-	int n = ftell(fp)/sizeof(datafilm);
-	
-	d = (datafilm*) calloc (n, sizeof(datafilm));
-	
-	rewind(fp);
-	for (i = 0; i < n; i++) {
-		fread (&d[i], sizeof(datafilm), 1, fp);
-	}
-	
-	fp = fopen ("datafilm.txt", "w");
-	for (i = 0; i < n; i++) {
-		for (j = i+1; j < n; j++) {
-			if((strcmp (d[i].tanggal, d[j].tanggal) < 0)) {
-				d1   = d[i];
-				d[i] = d[j];
-				d[j] = d1;			
-			}
+			d1   = d[i];
+			d[i] = d[j];
+			d[j] = d1;
 		}
 		fwrite(&d[i],sizeof (datafilm),1,fp);
 	}
@@ -744,10 +677,8 @@ void menuurut() {
     puts("  b.  Urut Berdasarkan Judul Film (Descending)");
     puts("  c.  Urut Berdasarkan Nama Sutradara (Ascending)");
     puts("  d.  Urut Berdasarkan Nama Sutradara (Descending)");
-    puts("  e.  Urut Berdasarkan Tanggal Perilisan (Ascending)");
-    puts("  f.  Urut Berdasarkan Tanggal Perilisan (Descending)");
-    puts("  g.  Urut Berdasarkan Durasi Film (Ascending)");
-    puts("  h.  Urut Berdasarkan Durasi Film (Descending)");
+    puts("  e.  Urut Berdasarkan Durasi Film (Ascending)");
+    puts("  f.  Urut Berdasarkan Durasi Film (Descending)");
     garis(120);
     switch(getch()){
 		case 'a' : judul_asc(); 
@@ -774,25 +705,14 @@ void menuurut() {
         printf("\n Silahkan Klik Menu Tampilkan Data Untuk Melihat Hasilnya.");
         printf("\n Tekan ENTER untuk kembali ke Menu Utama.");
         break;
-		case 'e' : tanggal_asc();
-        printf(" Menu Pilihan  : Urut Berdasarkan Tanggal Perilisan (Ascending)");
-        printf("\n Data Telah Berhasil Diurutkan!");
-        printf("\n Silahkan Klik Menu Tampilkan Data Untuk Melihat Hasilnya.");
-        printf("\n Tekan ENTER untuk kembali ke Menu Utama.");
         break;
-        case 'f' : tanggal_desc();
-        printf(" Menu Pilihan  : Urut Berdasarkan Tanggal Perilisan (Descending)");
-        printf("\n Data Telah Berhasil Diurutkan!");
-        printf("\n Silahkan Klik Menu Tampilkan Data Untuk Melihat Hasilnya.");
-        printf("\n Tekan ENTER untuk kembali ke Menu Utama.");
-        break;
-        case 'g' : durasi_asc();
+        case 'e' : durasi_asc();
         printf(" Menu Pilihan  : Urut Berdasarkan Durasi Film (Ascending)");
         printf("\n Data Telah Berhasil Diurutkan!");
         printf("\n Silahkan Klik Menu Tampilkan Data Untuk Melihat Hasilnya.");
         printf("\n Tekan ENTER untuk kembali ke Menu Utama.");
         break;
-        case 'h' : durasi_desc();
+        case 'f' : durasi_desc();
         printf(" Menu Pilihan  : Urut Berdasarkan Durasi Film (Descending)");
         printf("\n Data Telah Berhasil Diurutkan!");
         printf("\n Silahkan Klik Menu Tampilkan Data Untuk Melihat Hasilnya.");
@@ -809,7 +729,7 @@ void menucari() {
 		puts("   1.  Cari Berdasarkan Judul Film");
 	    puts("   2.  Cari Berdasarkan Nama Sutradara");
 	    puts("   3.  Cari Berdasarkan Genre Film");
-	    puts("   4.  Cari Berdasarkan Tanggal Penerbitan");
+	    puts("   4.  Cari Berdasarkan Tanggal Perilisan");
 	    puts("   5.  Cari Berdasarkan Durasi Film");
 	    puts("  00.  Kembali Ke Menu Awal");
 		switch(getch()){
@@ -862,12 +782,8 @@ int main(int argc, char *argv[]) {
 	system("cls");
 	do {
 		system("cls");
-		garis(120);
-		header("Muhammad Alviriza Ramadhan", "20081010143", 
-				"D081", "Pemrograman Lanjut", "Fawwaz Ali Akbar, S.Kom, M.Kom");
-		garis(120);
-		gotoxy(55,10);
-		printf("MENU UTAMA\n");
+		header();
+		printf("\t\t\t\t\t\t\tMENU UTAMA\n");
 	    puts("\n Pilih Menu dibawah ini untuk menjalankan aplikasi");
 	    puts("  1.  Tambah Data Film");
 	    puts("  2.  Tampilkan Data Film");
